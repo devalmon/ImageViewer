@@ -14,15 +14,15 @@ class ImageCell: UICollectionViewCell {
     private var imageDataTask: URLSessionDataTask?
     private static var cache = URLCache(memoryCapacity: 50 * 1024 * 1024, diskCapacity: 100 * 1024 * 1024, diskPath: "unsplash")
     
-    //    override init(frame: CGRect) {
-    //        super.init(frame: frame)
-    //        setupView()
-    //        self.addSubview(pictureNumber)
-    //    }
-    //
-    //    required init?(coder aDecoder: NSCoder) {
-    //        fatalError("init(coder:) has not been implemented")
-    //    }
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            setupView()
+            self.addSubview(pictureNumber)
+        }
+    
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
     
     let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)

@@ -36,6 +36,35 @@ class ViewController: UICollectionViewController {
         return activityIndicator
     }()
     
+    let imageView: UIImageView = {
+        
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.isUserInteractionEnabled = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
+    
+    let numberLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0"
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+        label.textAlignment = NSTextAlignment.center
+        label.numberOfLines = 1
+        label.textColor = UIColor.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    func setupImage() {
+        self.imageView.addSubview(numberLabel)
+        numberLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
+        numberLabel.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 5).isActive = true
+        numberLabel.rightAnchor.constraint(equalTo: imageView.rightAnchor, constant: -5).isActive = true
+    }
+    
     func configCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
