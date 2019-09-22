@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A5BDCD22337BAE5003E6870 /* UIVIew+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5BDCD12337BAE5003E6870 /* UIVIew+Ext.swift */; };
 		8AD71BE623340BB400F66043 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD71BE523340BB400F66043 /* AppDelegate.swift */; };
 		8AD71BE823340BB400F66043 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD71BE723340BB400F66043 /* ViewController.swift */; };
 		8AD71BEB23340BB400F66043 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD71BE923340BB400F66043 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		7CEB7B93852B850A587F475C /* Pods-ImageViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageViewer.release.xcconfig"; path = "Target Support Files/Pods-ImageViewer/Pods-ImageViewer.release.xcconfig"; sourceTree = "<group>"; };
+		8A5BDCD12337BAE5003E6870 /* UIVIew+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+Ext.swift"; sourceTree = "<group>"; };
 		8AD71BE223340BB400F66043 /* ImageViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD71BE523340BB400F66043 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AD71BE723340BB400F66043 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				8AD71BE723340BB400F66043 /* ViewController.swift */,
 				8AD71BF9233417C800F66043 /* ImageFullScreenVC.swift */,
 				8AD71BF72334146200F66043 /* ImageCell.swift */,
+				8A5BDCD12337BAE5003E6870 /* UIVIew+Ext.swift */,
 				8AD71BE923340BB400F66043 /* Main.storyboard */,
 				8AD71BEC23340BB500F66043 /* Assets.xcassets */,
 				8AD71BEE23340BB500F66043 /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 				8AD71BE823340BB400F66043 /* ViewController.swift in Sources */,
 				8AD71BE623340BB400F66043 /* AppDelegate.swift in Sources */,
 				8AD71BFA233417C800F66043 /* ImageFullScreenVC.swift in Sources */,
+				8A5BDCD22337BAE5003E6870 /* UIVIew+Ext.swift in Sources */,
 				8AD71BF82334146200F66043 /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -38,34 +38,6 @@ class ViewController: UICollectionViewController {
         return activityIndicator
     }()
     
-    let imageView: UIImageView = {
-        
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.isUserInteractionEnabled = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    let numberLabel: UILabel = {
-        let label = UILabel()
-        label.text = "0"
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
-        label.textAlignment = NSTextAlignment.center
-        label.numberOfLines = 1
-        label.textColor = UIColor.white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    func setupImage() {
-        self.view.addSubview(numberLabel)
-        numberLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
-        numberLabel.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 5).isActive = true
-        numberLabel.rightAnchor.constraint(equalTo: imageView.rightAnchor, constant: -5).isActive = true
-    }
     
     func configCollectionView() {
         let layout = UICollectionViewFlowLayout()
@@ -79,6 +51,8 @@ class ViewController: UICollectionViewController {
         homeCollectionView.backgroundColor = .white
         homeCollectionView.layer.cornerRadius = 4
         view.addSubview(homeCollectionView)
+        
+
     }
     
     func registerCell() {
@@ -101,16 +75,6 @@ class ViewController: UICollectionViewController {
         setImagesArray()
         setTotalImages()
         
-        let imageView = UIImageView()
-        let label = UILabel()
-        imageView.backgroundColor = .red
-        label.text = "number"
-        
-        [imageView, label].forEach { view.addSubview($0) }
-        
-        imageView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .zero, size: .init(width: 100, height: 100))
-        label.anchor(top: imageView.topAnchor, leading: nil, bottom: nil, trailing: imageView.trailingAnchor, padding: .zero, size: .init(width: 50, height: 50))
-        
         navigationItem.title = "Images: \(totalImages)"
         
     }
@@ -125,7 +89,7 @@ class ViewController: UICollectionViewController {
         cell.set(image: nil)
         cell.imageView.image = images[indexPath.row]
         cell.numberLabel.text = String(indexPath.row + 1)
-        cell.layer.cornerRadius = 12
+        cell.layer.cornerRadius = 9
         
         return cell
     }
@@ -152,38 +116,4 @@ class ViewController: UICollectionViewController {
         present(unsplashPhotoPicker, animated: true, completion: nil)
     }
     
-}
-
-extension UIView {
-    
-    
-    func anchor(top: NSLayoutYAxisAnchor?,
-                leading:NSLayoutXAxisAnchor?,
-                bottom: NSLayoutYAxisAnchor?,
-                trailing: NSLayoutXAxisAnchor?,
-                padding: UIEdgeInsets = .zero,
-                size: CGSize = .zero) {
-        
-        translatesAutoresizingMaskIntoConstraints = false
-        
-        guard let top = top,
-            let leading = leading,
-            let bottom = bottom,
-            let trailing = trailing
-            else { return }
-        
-        topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
-        leadingAnchor.constraint(equalTo: leading, constant: padding.left).isActive = true
-        bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true
-        trailingAnchor.constraint(equalTo: trailing, constant: -padding.right).isActive = true
-        
-        
-        if size.width != 0 {
-            widthAnchor.constraint(equalToConstant: size.width).isActive = true
-        }
-        
-        if size.height != 0 {
-            heightAnchor.constraint(equalToConstant: size.height).isActive = true
-        }
-    }
 }

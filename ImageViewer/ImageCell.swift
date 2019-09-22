@@ -25,22 +25,28 @@ class ImageCell: UICollectionViewCell {
     
     let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        
         return activityIndicator
     }()
     
     var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.layer.borderColor = UIColor.orange.cgColor
+//        imageView.layer.borderWidth = 1
+        
         return imageView
     }()
     
     let numberLabel: UILabel = {
         let label = UILabel()
-        label.text = "0"
-        label.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+        label.text = ""
+        label.font = UIFont(name:"AvenirNext-Bold", size: 15.0)
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 1
-        label.textColor = UIColor.white
+        label.textColor = .white
+//        label.layer.borderWidth = 1
+//        label.layer.borderColor = UIColor.red.cgColor
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -58,25 +64,19 @@ class ImageCell: UICollectionViewCell {
     
     private func setupView() {
         
-        backgroundColor = .lightGray
-        layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 1
-        layer.cornerRadius = 4
+//        backgroundColor = .lightGray
+//        layer.borderColor = UIColor.black.cgColor
+//        layer.borderWidth = 1
+//        layer.cornerRadius = 4
         clipsToBounds = true
         
         
         addSubview(imageView)
-    
-        let centerX = imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
-        let centerY = imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
-        let widthConstraint = imageView.widthAnchor.constraint(equalTo: self.widthAnchor)
-        let heigthConstraint = imageView.heightAnchor.constraint(equalTo: self.heightAnchor)
-        NSLayoutConstraint.activate([centerX, centerY, widthConstraint, heigthConstraint])
-        
+        imageView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor)
+
         addSubview(numberLabel)
-        
-        let bottomText = numberLabel.bottomAnchor.constraint(equalTo: imageView.topAnchor)
-        NSLayoutConstraint.activate([bottomText])
+        numberLabel.anchor(top: nil, leading: nil, bottom: nil, trailing: nil, padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0))
+
     }
     
     func downloadPhoto(photo: UnsplashPhoto) {

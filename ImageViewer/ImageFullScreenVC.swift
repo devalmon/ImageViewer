@@ -46,12 +46,8 @@ class ImageFullScreenVC: UIViewController {
     private func setupView() {
 
         view.addSubview(imageView)
-        
-        let centerX = imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        let centerY = imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        let widthConstraint = imageView.widthAnchor.constraint(equalTo: view.widthAnchor)
-        let heightConstraint = imageView.heightAnchor.constraint(equalTo: view.heightAnchor)
-        NSLayoutConstraint.activate([centerX, centerY, widthConstraint, heightConstraint])
+        imageView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor)
+
     }
 
     override func viewDidLoad() {
