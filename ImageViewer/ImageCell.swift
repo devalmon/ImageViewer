@@ -17,7 +17,6 @@ class ImageCell: UICollectionViewCell {
         override init(frame: CGRect) {
             super.init(frame: frame)
             setupView()
-            self.addSubview(pictureNumber)
         }
     
         required init?(coder aDecoder: NSCoder) {
@@ -31,14 +30,20 @@ class ImageCell: UICollectionViewCell {
     
     var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    var pictureNumber: UILabel = {
-        let pictureNumber = UILabel(frame: CGRect(x: 100, y: 30, width: UIScreen.main.bounds.width, height: 40))
-        pictureNumber.textAlignment = .left
-        pictureNumber.font = UIFont.systemFont(ofSize: 12, weight: .bold)
-        return pictureNumber
+    let numberLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0"
+        label.font = UIFont(name:"HelveticaNeue-Bold", size: 15.0)
+        label.textAlignment = NSTextAlignment.center
+        label.numberOfLines = 1
+        label.textColor = UIColor.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
     }()
     
     func set(image: UIImage?) {
@@ -52,6 +57,7 @@ class ImageCell: UICollectionViewCell {
     }
     
     private func setupView() {
+        
         backgroundColor = .lightGray
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1
@@ -60,16 +66,16 @@ class ImageCell: UICollectionViewCell {
         
         
         addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+    
         let centerX = imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         let centerY = imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         let widthConstraint = imageView.widthAnchor.constraint(equalTo: self.widthAnchor)
         let heigthConstraint = imageView.heightAnchor.constraint(equalTo: self.heightAnchor)
         NSLayoutConstraint.activate([centerX, centerY, widthConstraint, heigthConstraint])
         
-        addSubview(pictureNumber)
-        pictureNumber.translatesAutoresizingMaskIntoConstraints = false
-        let bottomText = pictureNumber.bottomAnchor.constraint(equalTo: imageView.topAnchor)
+        addSubview(numberLabel)
+        
+        let bottomText = numberLabel.bottomAnchor.constraint(equalTo: imageView.topAnchor)
         NSLayoutConstraint.activate([bottomText])
     }
     

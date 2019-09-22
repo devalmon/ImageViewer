@@ -25,8 +25,9 @@ class ImageFullScreenVC: UIViewController {
     let imageView: UIImageView = {
         
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
@@ -45,7 +46,7 @@ class ImageFullScreenVC: UIViewController {
     private func setupView() {
 
         view.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
         let centerX = imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         let centerY = imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         let widthConstraint = imageView.widthAnchor.constraint(equalTo: view.widthAnchor)
@@ -67,5 +68,9 @@ class ImageFullScreenVC: UIViewController {
             timer?.invalidate()
             navigationController?.popViewController(animated: true)
         }
+    }
+    
+    deinit {
+        print("Fullscreen deinited")
     }
 }
