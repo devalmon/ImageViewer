@@ -1,2 +1,2 @@
 # ImageViewer
-<img scr="https://user-images.githubusercontent.com/7213030/66712934-df6aff80-edac-11e9-9bd0-86dc343325d0.PNG" width="375" height="812">
+<img src="https://user-images.githubusercontent.com/7213030/66712979-57d1c080-edad-11e9-80ab-b21e0a530037.PNG" width="375" height="812">
